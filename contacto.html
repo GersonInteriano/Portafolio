@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Mi Portafolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Sobre mí</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="contacto">
+        <h1>Contacto</h1> 
+        <div class="container"> 
+            <div class="contact-info">
+                <p><strong>Correo electrónico:</strong> <a href="mailto:tu-email@dominio.com">tu-email@dominio.com</a></p>
+                <p><strong>Número de contacto:</strong> <a href="tel:+1234567890">+1234567890</a></p>
+            </div>
+
+            <form action="/action" method="post"> 
+                <label for="nombre">Nombre y Apellidos:</label><br>
+                <input type="text" id="nombre" name="nombre" required><br><br>
+        
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+        
+                <label for="telefono">Teléfono:</label><br>
+                <input type="tel" id="telefono" name="telefono" required><br><br>
+        
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Mi Portafolio</p>
+    </footer>
+</body>
+</html>
