@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    margin-top: 30px; /* Ajusta este valor según la altura del header */
 }
 
 header {
@@ -14,6 +15,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
+    left: 0;
     z-index: 10;
 }
 
@@ -146,6 +148,13 @@ footer {
     gap: 20px; /* Espaciado entre elementos */
     justify-items: center; /* Centrar los proyectos */
     padding: 20px;
+}
+
+/* Ajusta el título de la sección */
+.titulo-seccion {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
 }
 
 /* Cada proyecto */
