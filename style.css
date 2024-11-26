@@ -207,9 +207,12 @@ footer {
     -webkit-box-orient: vertical;
 }
 
-/* Botón de "ver más" */
-.proyecto .ver-mas {
-    color: #ff9800;
+.info-adicional {
+    display: none;  /* Ocultar la información adicional por defecto */
+}
+
+.ver-mas {
+    color: blue;
     cursor: pointer;
     text-decoration: underline;
 }

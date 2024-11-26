@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <!-- Enlace al archivo CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Menú de navegación -->
     <header>
@@ -18,9 +20,10 @@
             </ul>
         </nav>
     </header>
+
     <!-- Sección de Proyectos -->
     <section id="proyectos">
-         <h2 class="titulo-seccion">Mis proyectos</h2>
+        <h2 class="titulo-seccion">Mis proyectos</h2>
         <div class="lista-proyectos">
             <!-- Proyecto 1 -->
             <div class="proyecto">
@@ -28,16 +31,28 @@
                     <a href="proyecto1.html" class="enlace-proyecto"></a>
                 </div>
                 <h3><a href="proyecto1.html" class="enlace-proyecto">Proyecto 1</a></h3>
-                <p><a href="proyecto1.html" class="enlace-proyecto">Una breve descripción del proyecto... <span class="ver-mas">Más</span></a></p>
+                <p>
+                    Una breve descripción del proyecto...
+                    <span class="ver-mas" onclick="toggleInfo(this)">Más</span>
+                </p>
+                <div class="info-adicional">
+                    Aquí puedes escribir más detalles sobre el proyecto. Esta sección se mostrará al hacer clic en "Más".
+                </div>
             </div>
 
-             <!-- Proyecto 2 -->
-             <div class="proyecto">
+            <!-- Proyecto 2 -->
+            <div class="proyecto">
                 <div class="imagen-proyecto" style="background-image: url('proyecto2.jpg');">
                     <a href="proyecto2.html" class="enlace-proyecto"></a>
                 </div>
                 <h3><a href="proyecto2.html" class="enlace-proyecto">Proyecto 2</a></h3>
-                <p><a href="proyecto2.html" class="enlace-proyecto">Una breve descripción del proyecto... <span class="ver-mas">Más</span></a></p>
+                <p>
+                    Una breve descripción del proyecto...
+                    <span class="ver-mas" onclick="toggleInfo(this)">Más</span>
+                </p>
+                <div class="info-adicional">
+                    Más detalles sobre el segundo proyecto.
+                </div>
             </div>
 
             <!-- Proyecto 3 -->
@@ -46,47 +61,88 @@
                     <a href="proyecto3.html" class="enlace-proyecto"></a>
                 </div>
                 <h3><a href="proyecto3.html" class="enlace-proyecto">Proyecto 3</a></h3>
-                <p><a href="proyecto3.html" class="enlace-proyecto">Una breve descripción del proyecto... <span class="ver-mas">Más</span></a></p>
+                <p>
+                    Una breve descripción del proyecto...
+                    <span class="ver-mas" onclick="toggleInfo(this)">Más</span>
+                </p>
+                <div class="info-adicional">
+                    Más detalles sobre el tercer proyecto.
+                </div>
             </div>
+
             <!-- Proyecto 4 -->
             <div class="proyecto">
                 <div class="imagen-proyecto" style="background-image: url('proyecto4.jpg');">
                     <a href="proyecto4.html" class="enlace-proyecto"></a>
                 </div>
                 <h3><a href="proyecto4.html" class="enlace-proyecto">Proyecto 4</a></h3>
-                <p><a href="proyecto4.html" class="enlace-proyecto">Una breve descripción del proyecto... <span class="ver-mas">Más</span></a></p>
+                <p>
+                    Una breve descripción del proyecto...
+                    <span class="ver-mas" onclick="toggleInfo(this)">Más</span>
+                </p>
+                <div class="info-adicional">
+                    Aquí puedes escribir más detalles sobre el proyecto.
+                </div>
             </div>
-<!-- Proyecto 5 -->
-             <div class="proyecto">
+
+            <!-- Proyecto 5 -->
+            <div class="proyecto">
                 <div class="imagen-proyecto" style="background-image: url('proyecto5.jpg');">
                     <a href="proyecto5.html" class="enlace-proyecto"></a>
                 </div>
                 <h3><a href="proyecto5.html" class="enlace-proyecto">Proyecto 5</a></h3>
-                <p><a href="proyecto5.html" class="enlace-proyecto">Una breve descripción del proyecto... <span class="ver-mas">Más</span></a></p>
+                <p>
+                    Una breve descripción del proyecto...
+                    <span class="ver-mas" onclick="toggleInfo(this)">Más</span>
+                </p>
+                <div class="info-adicional">
+                    Detalles adicionales sobre el proyecto 5.
+                </div>
             </div>
-             <!-- Proyecto 6 -->
-             <div class="proyecto">
+
+            <!-- Proyecto 6 -->
+            <div class="proyecto">
                 <div class="imagen-proyecto" style="background-image: url('proyecto6.jpg');">
                     <a href="proyecto6.html" class="enlace-proyecto"></a>
                 </div>
                 <h3><a href="proyecto6.html" class="enlace-proyecto">Proyecto 6</a></h3>
-                <p><a href="proyecto6.html" class="enlace-proyecto">Una breve descripción del proyecto... <span class="ver-mas">Más</span></a></p>
+                <p>
+                    Una breve descripción del proyecto...
+                    <span class="ver-mas" onclick="toggleInfo(this)">Más</span>
+                </p>
+                <div class="info-adicional">
+                    Más detalles sobre el proyecto 6.
+                </div>
             </div>
+
             <!-- Proyecto 7 -->
             <div class="proyecto">
                 <div class="imagen-proyecto" style="background-image: url('proyecto7.jpg');">
                     <a href="proyecto7.html" class="enlace-proyecto"></a>
                 </div>
                 <h3><a href="proyecto7.html" class="enlace-proyecto">Proyecto 7</a></h3>
-                <p><a href="proyecto7.html" class="enlace-proyecto">Una breve descripción del proyecto... <span class="ver-mas">Más</span></a></p>
+                <p>
+                    Una breve descripción del proyecto...
+                    <span class="ver-mas" onclick="toggleInfo(this)">Más</span>
+                </p>
+                <div class="info-adicional">
+                    Más detalles sobre el proyecto 7.
+                </div>
             </div>
+
             <!-- Proyecto 8 -->
             <div class="proyecto">
                 <div class="imagen-proyecto" style="background-image: url('proyecto8.jpg');">
                     <a href="proyecto8.html" class="enlace-proyecto"></a>
                 </div>
                 <h3><a href="proyecto8.html" class="enlace-proyecto">Proyecto 8</a></h3>
-                <p><a href="proyecto8.html" class="enlace-proyecto">Una breve descripción del proyecto... <span class="ver-mas">Más</span></a></p>
+                <p>
+                    Una breve descripción del proyecto...
+                    <span class="ver-mas" onclick="toggleInfo(this)">Más</span>
+                </p>
+                <div class="info-adicional">
+                    Aquí puedes escribir más detalles sobre el proyecto.
+                </div>
             </div>
         </div>
     </section>
@@ -95,6 +151,12 @@
     <footer>
         <p>© 2024 Mi Portafolio</p>
     </footer>
+
+    <!-- Enlace al archivo de script externo -->
+    <script src="script.js"></script>
+
 </body>
+
 </html>
+
 
