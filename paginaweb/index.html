@@ -6,9 +6,9 @@
     <title>Mi Portafolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<header>
-    <nav>
+<body class="index">
+<header class="navbar">
+    <nav class="menu">
         <ul>
             <li><a href="index.html">Sobre mí</a></li>
             <li><a href="proyectos.html">Proyectos</a></li>
@@ -17,7 +17,7 @@
     </nav>
 </header>
 
-<section id="presentacion">
+<section id="presentacion" class="section">
     <h1>Bienvenido a mi portafolio</h1>
     <p>Hola, soy Gerson.</p>
 </section>
@@ -33,12 +33,12 @@
             <div class="proyecto">
                 <img src="imagenes/proyecto1.jpg" alt="Imagen del Proyecto 1">
                 <h3><a href="proyecto1.html">Proyecto 1</a></h3>
-                <p>Breve descripción del Proyecto 1.  Este proyecto me permitió desarrollar habilidades en X y Y, y aprendí mucho sobre Z.</p>
+                <p>Breve descripción del Proyecto 1...</p>
             </div>
             <div class="proyecto">
                 <img src="imagenes/proyecto2.jpg" alt="Imagen del Proyecto 2">
                 <h3><a href="proyecto2.html">Proyecto 2</a></h3>
-                <p>Breve descripción del Proyecto 2.  Utilicé las tecnologías A y B para crear este proyecto, que me ayudó a mejorar en C.</p>
+                <p>Breve descripción del Proyecto 2...</p>
             </div>
         </div>
     </div>
@@ -50,14 +50,16 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-    const nav = document.querySelector("nav");
+        const nav = document.querySelector(".menu");
 
-    // Añadir la clase 'active' al menú de navegación cuando se carga la página
-    setTimeout(() => {
-        nav.classList.add("active");
-    }, 500); // Ajusta el retraso según sea necesario
-});
-
+        // Añadir la clase 'active' al menú de navegación cuando se carga la página
+        setTimeout(() => {
+            nav.classList.add("active");
+        }, 500); // Ajusta el retraso según sea necesario
+    });
 </script>
+
+<script src="/paginaweb/java/script.js"></script>
+
 </body>
 </html>

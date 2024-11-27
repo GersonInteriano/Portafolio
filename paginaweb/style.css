@@ -7,6 +7,96 @@ body {
     margin-top: 30px; /* Ajusta este valor según la altura del header */
 }
 
+/* Estilo específico para el título principal en index */
+.index h1 {
+    margin-top: 50px; /* Baja el título principal */
+}
+
+/* Estilo general para la barra de navegación */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: top 0.3s;
+    z-index: 1000;
+}
+
+/* Secciones con animaciones en index */
+.index .section {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.index .section:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Menú activo en index */
+.index .menu.active {
+    /* Aquí puedes personalizar el estilo del menú cuando se active */
+}
+
+/* Contenedor principal del contenido */
+#contenido {
+    display: flex;
+    justify-content: space-between; /* Espacia las dos mitades (bloques) */
+    gap: 20px; /* Espaciado entre las mitades */
+    width: 100%; /* Abarca todo el ancho */
+    margin: 0 auto; /* Centra el contenido */
+    padding: 20px;
+    box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+}
+
+/* Bloques de contenido (las dos mitades) */
+#contenido .bloque {
+    flex: 1; /* Ambas mitades ocupan el mismo ancho */
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para el zoom */
+    background: #fff; /* Fondo blanco */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra inicial */
+    overflow: hidden; /* Evita que se desborde el contenido al hacer zoom */
+
+}
+
+/* Efecto de zoom al pasar el ratón */
+#contenido .bloque:hover {
+    transform: scale(1.05); /* Efecto de zoom */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Incrementa la sombra */
+}
+
+/* Ajustes para las imágenes dentro de los bloques */
+#contenido .bloque img {
+    width: 100%; /* Imagen ocupa todo el ancho del bloque */
+    height: auto; /* Mantiene las proporciones */
+    border-radius: 8px; /* Bordes redondeados para las imágenes */
+}
+
+/* Contenedor de proyectos destacados */
+body.index #contenido .proyectos {
+    display: flex;
+    justify-content: center; /* Centra los proyectos horizontalmente */
+    gap: 20px; /* Espacio entre los proyectos */
+    padding: 20px;
+}
+
+/* Configuración para cada proyecto */
+body.index .proyecto {
+    width: 100%; /* Cada proyecto ocupará el 50% del contenedor */
+    text-align: center; /* Centra el texto */
+    padding: 100px;
+
+}
+
+/* Imágenes dentro de cada proyecto */
+body.index .proyecto img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+
 header {
     background-color: #000000;
     color: white;
@@ -295,8 +385,7 @@ footer {
     }
 }
 
-/* Cada proyecto */
-/* Estilo del contenedor del proyecto (la tarjeta) */
+/* Efecto de zoom en las tarjetas al pasar el cursor */
 .proyecto {
     background-color: #a7a8b6; /* Fondo blanco */
     border: 1px solid #a7a8b6; /* Borde inicial gris */
@@ -312,22 +401,26 @@ footer {
     justify-content: space-between;
     text-align: center;
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suavizamos la transición */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     perspective: 1000px; /* Permite ver la animación en 3D */
 }
 
 /* Imagen dentro del proyecto */
 .imagen-proyecto {
-    height: 150px; /* Altura fija para imágenes */
     background-size: cover;
     background-position: center;
-    transition: transform 0.4s ease;
+    transition: transform 0.4s ease; /* Suavizamos la transición en la imagen */
 }
 
-/* Zoom en la imagen al hacer hover */
+/* Zoom en la imagen y tarjeta al hacer hover */
+.proyecto:hover {
+    transform: scale(1.1); /* Escalamos la tarjeta un poco */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Añadimos sombra más grande para darle efecto de profundidad */
+}
+
 .proyecto:hover .imagen-proyecto {
-    transform: scale(1.05); /* Zoom suave en la imagen */
+    transform: scale(1.1); /* Hacemos que la imagen también haga zoom */
 }
 
 /* Títulos y descripciones */
@@ -368,10 +461,14 @@ footer {
 
 /* Estilo para las sombras y el efecto 2,5D */
 .proyecto:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    transform: scale(1.02); /* Aumentar ligeramente el tamaño */
-    transform-origin: center; /* Centro para el efecto 3D */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: scale(1.1); /* Aumenta el tamaño de la tarjeta */
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2); /* Sombra para dar efecto flotante */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+/* Sombra animada al hacer hover */
+.proyecto:hover {
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Aumenta la sombra */
 }
 
 /* Efecto de sombra en el contenido desplegado */
@@ -386,50 +483,27 @@ footer {
 
 /* Estilo para el botón "Más" */
 .ver-mas {
-    background-color: transparent;  /* Fondo transparente para mantener el minimalismo */
-    border: 2px solid #007BFF;      /* Borde azul */
-    color: #007BFF;                 /* Color azul para el texto */
-    padding: 8px 15px;               /* Espaciado dentro del botón */
-    border-radius: 20px;             /* Bordes redondeados */
-    font-size: 14px;                 /* Tamaño de fuente */
-    font-weight: 600;                /* Texto en negrita */
-    text-transform: uppercase;       /* Texto en mayúsculas */
-    cursor: pointer;                /* Aparece el cursor de mano */
-    transition: all 0.3s ease;       /* Transición suave para el botón */
-    margin-top: 10px;                /* Espacio encima del botón */
-    display: inline-block;           /* El botón se ajusta al contenido */
-    position: relative;              /* Necesario para el z-index */
-    z-index: 3;                      /* Asegura que el botón esté encima */
+    background-color: transparent;
+    border: 2px solid #007BFF;
+    color: #007BFF;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    display: inline-block;
+    position: relative;
+    z-index: 3;
 }
 
 /* Efecto de hover para el botón */
 .ver-mas:hover {
-    background-color: #007BFF;      /* Fondo azul al pasar el ratón */
-    color: #fff;                    /* Texto blanco */
-    border-color: #0056b3;          /* Borde más oscuro cuando se pasa el ratón */
-}
-
-/* Al pasar el ratón sobre la tarjeta */
-.proyecto:hover {
-    border: 1px solid #ff9800; /* Borde minimalista en color naranja */
-    transform: translateY(-10px);    /* Desplazar la tarjeta hacia arriba cuando se pasa el ratón */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más grande al pasar el ratón */
-}
-
-.enlace-proyecto {
-    display: block; /* Asegura que el enlace abarque el área correspondiente */
-    text-decoration: none; /* Elimina subrayado */
-    color: inherit; /* Usa el color del texto del proyecto */
-}
-
-.imagen-proyecto a {
-    display: block; /* Asegura que la imagen cubra el área del enlace */
-    height: 100%; /* Asegura que ocupe todo el área disponible */
-}
-
-.enlace-proyecto:hover {
-    cursor: pointer;
-    color: #ff9800; /* O cualquier color que prefieras para el hover */
+    background-color: #007BFF;
+    color: #fff;
+    border-color: #0056b3;
 }
 
 /* Fondo estático para las tarjetas */
@@ -441,19 +515,19 @@ footer {
 /* Degradado dinámico al hacer hover */
 .proyecto:hover {
     background: linear-gradient(135deg, #00bcd4, #f06292); /* Cian y rosa viejo mezclados */
-    color: white; /* Cambiar el color del texto */
+    color: white;
 }
 
-/* Sombra predeterminada */
-.proyecto {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.4s ease, transform 0.4s ease;
-}
+@media (max-width: 768px) {
+    #contenido {
+        flex-direction: column; /* Cambia los bloques a una columna */
+        gap: 10px;
+    }
 
-/* Sombra animada al hacer hover */
-.proyecto:hover {
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
-    transform: scale(1.02); /* Aumentar ligeramente el tamaño */
+    #contenido .bloque {
+        flex: unset;
+        width: 100%; /* Abarca todo el ancho */
+    }
 }
 
 /* Responsive: Ajusta columnas en pantallas más pequeñas */
@@ -478,7 +552,7 @@ footer {
 /* ... estilos proyecto 1 ... */
 
 #proyecto1 .container {
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -493,7 +567,6 @@ footer {
 .proyecto-contenido {
     display: flex; /* Usamos flexbox para las dos columnas */
     gap: 20px; /* Espacio entre las columnas */
-    width: 100%;
 }
 
 .descripcion {
