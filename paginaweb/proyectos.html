@@ -33,7 +33,7 @@
                 <h3><a href="proyecto1.html" class="enlace-proyecto">Proyecto 1</a></h3>
                 <p>
                     Una breve descripción del proyecto...
-                    <span class="ver-mas" onclick="toggleInfo(this)">Más</span>
+                    <button class="ver-mas" onclick="toggleInfo(this)">Más</button>
                 </p>
                 <div class="info-adicional">
                     Aquí puedes escribir más detalles sobre el proyecto. Esta sección se mostrará al hacer clic en "Más".
@@ -48,7 +48,7 @@
                 <h3><a href="proyecto2.html" class="enlace-proyecto">Proyecto 2</a></h3>
                 <p>
                     Una breve descripción del proyecto...
-                    <span class="ver-mas" onclick="toggleInfo(this)">Más</span>
+                    <button class="ver-mas" onclick="toggleInfo(this)">Más</button>
                 </p>
                 <div class="info-adicional">
                     Más detalles sobre el segundo proyecto.
@@ -63,7 +63,7 @@
                 <h3><a href="proyecto3.html" class="enlace-proyecto">Proyecto 3</a></h3>
                 <p>
                     Una breve descripción del proyecto...
-                    <span class="ver-mas" onclick="toggleInfo(this)">Más</span>
+                    <button class="ver-mas" onclick="toggleInfo(this)">Más</button>
                 </p>
                 <div class="info-adicional">
                     Más detalles sobre el tercer proyecto.
@@ -78,7 +78,7 @@
                 <h3><a href="proyecto4.html" class="enlace-proyecto">Proyecto 4</a></h3>
                 <p>
                     Una breve descripción del proyecto...
-                    <span class="ver-mas" onclick="toggleInfo(this)">Más</span>
+                    <button class="ver-mas" onclick="toggleInfo(this)">Más</button>
                 </p>
                 <div class="info-adicional">
                     Aquí puedes escribir más detalles sobre el proyecto.
@@ -93,7 +93,7 @@
                 <h3><a href="proyecto5.html" class="enlace-proyecto">Proyecto 5</a></h3>
                 <p>
                     Una breve descripción del proyecto...
-                    <span class="ver-mas" onclick="toggleInfo(this)">Más</span>
+                    <button class="ver-mas" onclick="toggleInfo(this)">Más</button>
                 </p>
                 <div class="info-adicional">
                     Detalles adicionales sobre el proyecto 5.
@@ -108,7 +108,7 @@
                 <h3><a href="proyecto6.html" class="enlace-proyecto">Proyecto 6</a></h3>
                 <p>
                     Una breve descripción del proyecto...
-                    <span class="ver-mas" onclick="toggleInfo(this)">Más</span>
+                    <button class="ver-mas" onclick="toggleInfo(this)">Más</button>
                 </p>
                 <div class="info-adicional">
                     Más detalles sobre el proyecto 6.
@@ -123,7 +123,7 @@
                 <h3><a href="proyecto7.html" class="enlace-proyecto">Proyecto 7</a></h3>
                 <p>
                     Una breve descripción del proyecto...
-                    <span class="ver-mas" onclick="toggleInfo(this)">Más</span>
+                    <button class="ver-mas" onclick="toggleInfo(this)">Más</button>
                 </p>
                 <div class="info-adicional">
                     Más detalles sobre el proyecto 7.
@@ -138,10 +138,14 @@
                 <h3><a href="proyecto8.html" class="enlace-proyecto">Proyecto 8</a></h3>
                 <p>
                     Una breve descripción del proyecto...
-                    <span class="ver-mas" onclick="toggleInfo(this)">Más</span>
+                    <button class="ver-mas" onclick="toggleInfo(this)">Más</button>
                 </p>
                 <div class="info-adicional">
-                    Aquí puedes escribir más detalles sobre el proyecto.
+                    Aquí puedes escribir más detalles sobre el proyecto.........................................................
+                    ..............................................................
+                    ................................................................
+                    ...............................................................
+                    ............................................
                 </div>
             </div>
         </div>
@@ -152,11 +156,55 @@
         <p>© 2024 Mi Portafolio</p>
     </footer>
 
-    <!-- Enlace al archivo de script externo -->
-    <script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const nav = document.querySelector("nav");
+    const projectList = document.querySelector(".lista-proyectos");
+    const title = document.querySelector(".titulo-seccion");
+
+    // Añadir la clase 'active' al menú de navegación cuando se carga la página
+    setTimeout(() => {
+        nav.classList.add("active");
+    }, 500); // Ajusta el retraso según sea necesario
+
+    // Añadir la clase 'active' a la lista de proyectos cuando se carga la página
+    setTimeout(() => {
+        projectList.classList.add("active");
+    }, 2100); // Ajusta el retraso según sea necesario
+
+    // Mostrar el título letra por letra
+    setTimeout(() => {
+        title.style.opacity = 1;
+    }, 2100); // Ajusta el retraso según sea necesario
+});
+
+</script>
+
+<script>
+// Función para alternar la visibilidad de la información adicional
+function toggleInfo(element) {
+    // Obtener el contenedor de la tarjeta
+    const card = element.closest('.proyecto');
+    // Obtener el contenedor de la información adicional
+    const info = card.querySelector('.info-adicional');
+
+    // Verificar si el contenedor tiene la clase "info-adicional"
+    if (info && info.classList.contains("info-adicional")) {
+        // Alternar la visibilidad
+        if (info.style.maxHeight && info.style.maxHeight !== "0px") {
+            info.style.maxHeight = "0px"; // Ocultar información
+            info.classList.remove("show");
+            element.textContent = "Más"; // Cambiar texto a "Más"
+        } else {
+            info.style.maxHeight = info.scrollHeight + "px"; // Mostrar información
+            info.classList.add("show");
+            element.textContent = "Menos"; // Cambiar texto a "Menos"
+        }
+    }
+}
+
+</script>
 
 </body>
 
 </html>
-
-
