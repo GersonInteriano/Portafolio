@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto 1 - Mi Portafolio</title>
+    <meta name="description" content="Portafolio personal de Manel y Gerson con proyectos y contacto">
+    <meta name="author" content="Manel y Gerson">
+    <title>Proyecto 2 - Mi Portafolio</title>
+
+    <!-- Enlazar el archivo CSS general -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Enlazar el archivo CSS específico para la página del proyecto -->
+    <link rel="stylesheet" href="proyecto.css">
 </head>
 <body>
 <header class="navbar">
@@ -17,9 +24,9 @@
     </nav>
 </header>
 
-<section id="proyecto1">
+<section class="proyecto-individual">
     <div class="container">
-        <h2>Proyecto 1: [Nombre del Proyecto]</h2>
+        <h2>Proyecto 2: [Nombre del Proyecto]</h2>
 
         <div class="proyecto-contenido">
             <div class="descripcion">
@@ -38,8 +45,7 @@
             </div>
 
             <div class="imagen-funcionalidades">
-                <img src="imagenes/proyecto1-grande.jpg" alt="Imagen principal del Proyecto 1">
-
+                <img src="imagenes/proyecto1-grande.jpg" alt="Imagen principal del Proyecto 2">
                 <h3>Funcionalidades</h3>
                 <p>Describe las principales funcionalidades de tu proyecto. Si es una aplicación web, puedes incluir capturas de pantalla de las diferentes secciones.</p>
             </div>
@@ -60,10 +66,10 @@
         nav.classList.add("active");
     }, 500); // Ajusta el retraso según sea necesario
 });
-
 </script>
 
-<script src="/paginaweb/java/script.js"></script>
+<script src="/paginaweb/java/script.js" defer></script>
+<script src="java/proyecto.js"></script>
 
 </body>
 </html>

@@ -7,6 +7,9 @@
     <title>Mi-portafolio - Proyectos</title>
     <!-- Enlace al archivo CSS -->
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+          rel="stylesheet">
+
 
 </head>
 
@@ -154,53 +157,67 @@
     </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+
+document.addEventListener("DOMContentLoaded", function () {
     const nav = document.querySelector("nav");
     const projectList = document.querySelector(".lista-proyectos");
     const title = document.querySelector(".titulo-seccion");
 
-    // Añadir la clase 'active' al menú de navegación cuando se carga la página
+    // Añadir clase 'active' al menú de navegación
     setTimeout(() => {
         nav.classList.add("active");
-    }, 500); // Ajusta el retraso según sea necesario
+    }, 500); // Animación del menú
 
-    // Añadir la clase 'active' a la lista de proyectos cuando se carga la página
+    // Añadir clase 'active' a la lista de proyectos
     setTimeout(() => {
         projectList.classList.add("active");
-    }, 2100); // Ajusta el retraso según sea necesario
+    }, 2100); // Animación de los proyectos
 
-    // Mostrar el título letra por letra
+    // Mostrar el título letra por letra después de las animaciones
     setTimeout(() => {
-        title.style.opacity = 1;
-    }, 2100); // Ajusta el retraso según sea necesario
+        escribirTitulo("Mis proyectos", title);
+        title.classList.add("visible"); // Añadir la clase visible después de animar el título
+    }, 2200); // Ajusta según el tiempo total necesario
 });
 
-</script>
+// Función para animar la escritura del título con requestAnimationFrame
+function escribirTitulo(texto, elemento) {
+    elemento.textContent = ""; // Vaciar el contenido antes de empezar
+    let i = 0;
 
-<script>
+    function animar() {
+        if (i < texto.length) {
+            elemento.textContent += texto.charAt(i);
+            i++;
+            requestAnimationFrame(animar); // Llamada recursiva con requestAnimationFrame
+        }
+    }
+
+    requestAnimationFrame(animar); // Iniciar la animación
+}
+
 // Función para alternar la visibilidad de la información adicional
 function toggleInfo(element) {
-    // Obtener el contenedor de la tarjeta
-    const card = element.closest('.proyecto');
-    // Obtener el contenedor de la información adicional
-    const info = card.querySelector('.info-adicional');
+    const card = element.closest(".proyecto");
+    const info = card.querySelector(".info-adicional");
 
-    // Verificar si el contenedor tiene la clase "info-adicional"
     if (info && info.classList.contains("info-adicional")) {
-        // Alternar la visibilidad
         if (info.style.maxHeight && info.style.maxHeight !== "0px") {
-            info.style.maxHeight = "0px"; // Ocultar información
+            info.style.maxHeight = "0px";
             info.classList.remove("show");
-            element.textContent = "Más"; // Cambiar texto a "Más"
+            element.textContent = "Más";
         } else {
-            info.style.maxHeight = info.scrollHeight + "px"; // Mostrar información
+            info.style.maxHeight = info.scrollHeight + "px";
             info.classList.add("show");
-            element.textContent = "Menos"; // Cambiar texto a "Menos"
+            element.textContent = "Menos";
         }
     }
 }
 
 </script>
+
+<script src="/paginaweb/java/script.js" defer></script>
+<script src="java/proyecto.js"></script>
 
 </body>
 

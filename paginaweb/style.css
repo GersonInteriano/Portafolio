@@ -33,11 +33,6 @@ body {
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Menú activo en index */
-.index .menu.active {
-    /* Aquí puedes personalizar el estilo del menú cuando se active */
-}
-
 /* Contenedor principal del contenido */
 #contenido {
     display: flex;
@@ -142,10 +137,15 @@ nav ul li a {
     color: white; /* Color del texto */
     text-decoration: none; /* Eliminar subrayado */
     font-size: 18px; /* Tamaño de fuente */
+    font-family: "Crimson Text", serif;
+    font-weight: 700;
+    font-style: normal;
+
 }
 
 /* Estado cuando el menú está activo */
 nav.active {
+    background-color: rgb(30, 30, 30); /* Fondo sutil cuando aparece */
     height: 80px; /* Altura final */
 }
 
@@ -212,25 +212,31 @@ footer {
     max-width: 100%;
     height: auto;
 }
+
 /* Estilos para la página de contacto */
 #contacto h1 {
     text-align: center;
     font-size: 3em;
-    margin-top: 60px;
+    margin-top: 120px; /* Separación con el menú */
+    margin-bottom: 40px; /* Separación adicional con el contenido */
 }
+
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 60vh;
+    align-items: flex-start; /* Alinear contenido desde el inicio */
+    height: auto; /* Ajustar la altura automáticamente */
+    padding-bottom: 60px; /* Espacio debajo para evitar que el formulario quede tapado */
 }
+
 .contact-info {
     border: 1px solid #ccc;
     padding: 20px;
     width: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-/*Formulario*/
+
+/* Formulario */
 #contacto .container {
     display: flex;
     flex-direction: column;
@@ -251,11 +257,13 @@ footer {
     margin-top: 20px;
 }
 
-#contacto form label, #contacto form input {
+#contacto form label,
+#contacto form input {
     width: 100%;
     margin-bottom: 10px;
 }
 
+/* Campos de texto */
 #contacto form input[type="text"],
 #contacto form input[type="email"],
 #contacto form input[type="tel"] {
@@ -263,8 +271,20 @@ footer {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+    transition: border-color 0.3s ease;
 }
 
+/* Borde en rojo cuando el campo es incorrecto */
+#contacto form input.error {
+    border-color: red;
+}
+
+/* Borde en verde cuando el campo es válido */
+#contacto form input.success {
+    border-color: green;
+}
+
+/* Estilo para el botón */
 #contacto form input[type="submit"] {
     padding: 10px 20px;
     background-color: #000;
@@ -272,11 +292,14 @@ footer {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #contacto form input[type="submit"]:hover {
     background-color: #333;
+    transform: scale(1.05); /* Pequeña animación al pasar el ratón */
 }
+
 
 /* Estilos iniciales para los proyectos */
 .lista-proyectos .proyecto {
@@ -348,40 +371,64 @@ footer {
     padding: 20px;
 }
 
-/* Ajusta el título de la sección */
+/* Estilos generales para el título */
 .titulo-seccion {
-    font-size: 32px;
-    font-weight: bold;
-    color: #333;
-    padding: 20px;
-    margin-bottom: 10px;
-    margin-top: 120px;
-    margin-left: 20px;
-    opacity: 0; /* Inicialmente oculto */
-    display: inline-block; /* Se muestra como bloque en línea */
-    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
-    overflow: hidden; /* Oculta el texto que desborda */
-    border-right: 0.15em solid orange; /* Efecto de cursor en color naranja */
-    animation: typing 3s steps(30, end), blink-caret 0,75s step-end infinite; /* Animaciones */
+    font-size: 3rem; /* Tamaño de la fuente */
+    font-family: "Crimson Text", serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #333; /* El color de la fuente */
+    display: inline-block; /* Esto es importante para que el texto se "escriba" en línea */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Esconde el texto que no se ha escrito aún */
+    margin-top: 108px;
+    margin-left: 28px;
+    width: 0; /* Comienza con el ancho en 0 */
+    opacity: 1; /* Aseguramos que la opacidad esté al 100% */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transform: scale(0.9); /* Empieza un poco más pequeño */
+    transition: opacity 0.5s ease-out, transform 0.2s ease;
+}
+
+.crimson-text-bold {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Esto se añadirá cuando el título ya se haya animado */
+.titulo-seccion.visible {
+    opacity: 1; /* Mantener opacidad visible */
+    animation: typing 3s ease-in-out forwards, glow 1s ease-out forwards;
+    transform: scale(1); /* Escala a su tamaño normal */
+
 }
 
 /* Animación de escritura */
 @keyframes typing {
-    from {
-        width: 0; /* Comienza sin mostrar nada */
+    0% {
+        width: 0;
+        transform: translateY(10px); /* Deslizar desde abajo */
+        transform: scaleX(0);
+        opacity: 0;
+     }
+    50% {
+        opacity: 0.7;
     }
-    to {
-        width: 100%; /* Muestra el texto completo */
+    100% {
+        width: 100%;
+        transform: translateY(0);
+        transform: scaleX(1);
+        opacity: 1;
     }
 }
 
-/* Animación para el parpadeo del cursor */
-@keyframes blink-caret {
-    from, to {
-        border-color: transparent; /* El cursor es invisible al inicio y al final */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
     }
-    50% {
-        border-color: orange; /* El cursor parpadea a color naranja en el medio */
+    100% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.7);
     }
 }
 
@@ -415,6 +462,7 @@ footer {
 
 /* Zoom en la imagen y tarjeta al hacer hover */
 .proyecto:hover {
+    max-width: 308px;
     transform: scale(1.1); /* Escalamos la tarjeta un poco */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Añadimos sombra más grande para darle efecto de profundidad */
 }
@@ -430,6 +478,9 @@ footer {
     color: #333; /* Color de texto oscuro */
     text-align: center;
     flex-shrink: 0; /* Evita que se ajuste el tamaño del texto */
+    font-family: "Crimson Text", serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .proyecto p {
@@ -442,6 +493,9 @@ footer {
     display: -webkit-box;
     -webkit-line-clamp: 3; /* Limitar a 3 líneas */
     -webkit-box-orient: vertical;
+    font-family: "Crimson Text", serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 /* La animación del "pergamino" */
@@ -457,6 +511,9 @@ footer {
 .info-adicional.show {
     max-height: 500px;                  /* Máxima altura cuando está visible */
     transform: rotateX(0deg);           /* Desplegar el pergamino */
+    font-family: "Crimson Text", serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 /* Estilo para las sombras y el efecto 2,5D */
@@ -489,7 +546,6 @@ footer {
     padding: 8px 15px;
     border-radius: 20px;
     font-size: 14px;
-    font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -497,6 +553,9 @@ footer {
     display: inline-block;
     position: relative;
     z-index: 3;
+    font-family: "Crimson Text", serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 /* Efecto de hover para el botón */
@@ -508,13 +567,13 @@ footer {
 
 /* Fondo estático para las tarjetas */
 .proyecto {
-    background: linear-gradient(135deg, #ffffff, #f4f4f4);
+    background: linear-gradient(135deg, #00bcd4, #d9a694);
     transition: background 0.5s ease;
 }
 
 /* Degradado dinámico al hacer hover */
 .proyecto:hover {
-    background: linear-gradient(135deg, #00bcd4, #f06292); /* Cian y rosa viejo mezclados */
+    background: linear-gradient(135deg, #E9babc, #00FFFF); /* Cian y rosa viejo mezclados */
     color: white;
 }
 
@@ -547,51 +606,4 @@ footer {
     .lista-proyectos {
         grid-template-columns: 1fr; /* 1 columna en móviles pequeños */
     }
-}
-
-/* ... estilos proyecto 1 ... */
-
-#proyecto1 .container {
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#proyecto1 h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.proyecto-contenido {
-    display: flex; /* Usamos flexbox para las dos columnas */
-    gap: 20px; /* Espacio entre las columnas */
-}
-
-.descripcion {
-    flex: 1; /* La descripción ocupa la mitad del espacio disponible */
-}
-
-.imagen-funcionalidades {
-    flex: 1; /* La imagen y las funcionalidades ocupan la otra mitad */
-    display: flex;
-    flex-direction: column; /* Apilamos la imagen y el texto verticalmente */
-    align-items: center; /* Centramos la imagen */
-}
-
-.imagen-funcionalidades img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-body {
-    display: flex;
-    min-height: 100vh; /* Asegura que el body ocupe al menos la altura de la pantalla */
-    flex-direction: column; /* Apila header, contenido y footer verticalmente */
-}
-
-#contenido { /* O el ID del contenedor principal de tu página */
-    flex: 1; /* El contenido se expande para ocupar el espacio disponible */
 }
